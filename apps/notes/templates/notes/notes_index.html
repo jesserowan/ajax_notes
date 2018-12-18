@@ -1,0 +1,13 @@
+{% for note in notes %}
+    <div class="container">
+        <form class="form edit" action="edit/{{note.id}}/">
+            {% csrf_token %}
+            <div class="top">
+                <h3 class="form-group">{{ note.title }}</h3>
+                <a class="btn btn-danger delete" href="/delete/{{note.id}}/">Delete</a>
+            </div>
+            <textarea class="form-control" name="edit_description" rows="5">{{note.description}}</textarea>
+            <input type="submit" class="btn btn-primary" value="Edit Note">
+        </form>
+    </div>
+{% endfor %}
